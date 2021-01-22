@@ -1,0 +1,36 @@
+{% extends 'fball_app/base.html' %}
+{% load bootstrap4 %}
+
+{% load static %}
+
+{% block title %}Start Season {{ next_season_num }}{% endblock %}
+
+{% block nav-items %}
+    <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/enter_game/">Enter Game</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/view_rankings/">View Rankings</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/view_player/">View Player</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/add_player/">Add Player</a>
+    </li>
+{% endblock %}
+
+{% block subtitle %}Current season: {{ season.num }}{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <form action="/add_season/" method="post">
+            {% csrf_token %}
+            {% bootstrap_button "Start Season" button_type="submit" button_class="btn btn-lg btn-primary home_buttons" %}
+        </form>
+    </div>
+
+{% endblock %}

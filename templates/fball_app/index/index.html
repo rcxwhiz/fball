@@ -1,0 +1,56 @@
+{% extends 'fball_app/base.html' %}
+{% load bootstrap4 %}
+
+{% load static %}
+
+{% block title %}FBall{% endblock %}
+
+{% block nav-items %}
+    <li class="nav-item active">
+        <a class="nav-link" href="/">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/enter_game/">Enter Game</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/view_rankings/">View Rankings</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/view_player/">View Player</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/add_player/">Add Player</a>
+    </li>
+{% endblock %}
+
+{% block subtitle %}Apt 81 foosball season {{ season.num }}{% endblock %}
+
+{% block title_image %}
+    <img class="mb-4" src="{% static 'assets/logo-solid.svg' %}" alt="" width="72" height="72">
+{% endblock %}
+
+{% block content %}
+    <p>
+        <strong>FBall</strong> is built using Django and Bootstrap 4.
+    </p>
+    <p>
+        FBall tracks player scores and rankings over seasons.
+    </p>
+    <br>
+    <div class="row justify-content-center">
+        {% bootstrap_button "Enter Game" button_type="link" href="/enter_game/" button_class="btn btn-lg btn-primary home_buttons" %}
+    </div>
+    <br>
+    <div class="row justify-content-center">
+        {% bootstrap_button "View Player" button_type="link" href="/view_player/" button_class="btn btn-lg btn-primary home_buttons" %}
+    </div>
+    <br>
+    <div class="row justify-content-center">
+        {% bootstrap_button "View Rankings" button_type="link" href="/view_rankings/" button_class="btn btn-lg btn-primary home_buttons" %}
+    </div>
+    <br>
+    <div class="row justify-content-center">
+        {% bootstrap_button "Add Player" button_type="link" href="/add_player/" button_class="btn btn-lg btn-primary home_buttons" %}
+    </div>
+
+{% endblock %}

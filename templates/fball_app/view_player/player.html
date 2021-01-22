@@ -1,0 +1,72 @@
+{% extends 'fball_app/base.html' %}
+{% load bootstrap4 %}
+
+{% load static %}
+
+{% block title %}{{ player }}{% endblock %}
+
+{% block nav-items %}
+    <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/enter_game/">Enter Game</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/view_rankings/">View Rankings</a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="/view_player/">View Player</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/add_player/">Add Player</a>
+    </li>
+{% endblock %}
+
+{% block subtitle %}Stats across all seasons{% endblock %}
+
+{% block content %}
+    <h3>Season Stats</h3>
+    <div class="row justify-content-center">
+        <table class="table table-striped table-sm">
+            <tr>
+                <th>Season</th>
+                <th>PL</th>
+                <th>W</th>
+                <th>L</th>
+                <th>+/-</th>
+                <th>GD</th>
+            </tr>
+            {% for record in player_records %}
+                <tr>
+                    <td>{{ record.season.num }}</td>
+                    <td>{{ record.played }}</td>
+                    <td>{{ record.wins }}</td>
+                    <td>{{ record.losses }}</td>
+                    <td>{{ record.goals_forced }}-{{ record.goals_allowed }}</td>
+                    <td>{{ record.goal_differential }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <br>
+    <h3>Games</h3>
+    <div class="row justify-content-center">
+        <table class="table table-striped table-sm">
+            <tr>
+                <th>Season</th>
+                <th>Winner</th>
+                <th>Score</th>
+                <th>Loser</th>
+            </tr>
+            {% for game in player_games %}
+                <tr>
+                    <td>{{ game.season.num }}</td>
+                    <td>{{ game.winner }}</td>
+                    <td>{{ game.winning_score }} - {{ game.losing_score }}</td>
+                    <td>{{ game.loser }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
