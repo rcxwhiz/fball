@@ -26,7 +26,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
 	'fball.joshbedwell.com',
-	'66.219.252.33'
+	'66.219.252.33',
+	'desktop-dbb75l5'
 ]
 
 # Application definition
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
 	'django.middleware.security.SecurityMiddleware',
+	'whitenoise.middleware.WhiteNoiseMiddleware',
 	'django.contrib.sessions.middleware.SessionMiddleware',
 	'django.middleware.common.CommonMiddleware',
 	'django.middleware.csrf.CsrfViewMiddleware',
