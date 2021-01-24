@@ -39,7 +39,7 @@
             </tr>
             {% for record in player_records %}
                 <tr>
-                    <td>{{ record.season.num }}</td>
+                    <td><a href="/view_season/{{ record.season.num }}">{{ record.season.num }}</a></td>
                     <td>{{ record.played }}</td>
                     <td>{{ record.wins }}</td>
                     <td>{{ record.losses }}</td>
