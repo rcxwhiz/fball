@@ -50,7 +50,7 @@
             </tr>
             {% for record in player_records %}
                 <tr>
-                    <td>{{ record.player }}</td>
+                    <td><a href="/view_player/{{ record.player.name }}">{{ record.player }}</a></td>
                     <td>{{ record.played }}</td>
                     <td>{{ record.wins }}</td>
                     <td>{{ record.losses }}</td>
