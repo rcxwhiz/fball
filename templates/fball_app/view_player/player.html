@@ -62,9 +62,9 @@
             {% for game in player_games %}
                 <tr>
                     <td>{{ game.season.num }}</td>
-                    <td>{{ game.winner }}</td>
+                    <td><a href="/view_player/{{ game.winner.name }}">{{ game.winner }}</a></td>
                     <td>{{ game.winning_score }} - {{ game.losing_score }}</td>
-                    <td>{{ game.loser }}</td>
+                    <td><a href="/view_player/{{ game.winner.name }}">{{ game.loser }}</a></td>
                 </tr>
             {% endfor %}
         </table>
