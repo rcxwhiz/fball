@@ -29,7 +29,8 @@ ALLOWED_HOSTS = [
 	'66.219.252.33',
 	'desktop-dbb75l5',
 	'138.68.251.77',
-	'www.fball.joshbedwell.com'
+	'www.fball.joshbedwell.com',
+	'138.68.55.226'
 ]
 
 # Application definition
