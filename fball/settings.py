@@ -27,7 +27,9 @@ DEBUG = False
 ALLOWED_HOSTS = [
 	'fball.joshbedwell.com',
 	'66.219.252.33',
-	'desktop-dbb75l5'
+	'desktop-dbb75l5',
+	'138.68.251.77',
+	'www.fball.joshbedwell.com'
 ]
 
 # Application definition
