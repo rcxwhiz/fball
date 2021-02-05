@@ -8,7 +8,7 @@ from fball_app.models import Season, PlayerSeasonRecord, Player, Game
 
 
 class Index(TemplateView):
-	season = Season.objects.order_by('-num').first()
+	season = Season.objects.order_by('num').first()
 	template_name = 'fball_app/index/index.html'
 
 	def get_context_data(self, **kwargs):
