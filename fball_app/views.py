@@ -73,7 +73,7 @@ class ViewSeasonRankings(TemplateView):
 		context = super().get_context_data(**kwargs)
 		season_num = self.kwargs['season']
 		season = Season.objects.get(num=season_num)
-		player_records = PlayerSeasonRecord.objects.filter(season=season | ~Q(played=0)).order_by('-power_index', '-goal_differential')
+		player_records = PlayerSeasonRecord.objects.filter(Q(season=season) | ~Q(played=0)).order_by('-power_index', '-goal_differential')
 		context['season'] = season
 		context['player_records'] = player_records
 		context['form'] = ChooseSeasonForm()
