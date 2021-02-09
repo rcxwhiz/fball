@@ -41,30 +41,30 @@
         <table class="table table-striped table-sm">
             <tr>
                 <th>Player</th>
-                <th>PL</th>
+{#                <th>PL</th>#}
                 <th>W</th>
                 <th>L</th>
-                <th>+/-</th>
+{#                <th>+/-</th>#}
                 <th>GD</th>
                 <th>PI</th>
             </tr>
             {% for record in player_records %}
                 <tr>
                     <td><a href="/view_player/{{ record.player.name }}">{{ record.player }}</a></td>
-                    <td>{{ record.played }}</td>
+{#                    <td>{{ record.played }}</td>#}
                     <td>{{ record.wins }}</td>
                     <td>{{ record.losses }}</td>
-                    <td>{{ record.goals_forced }}-{{ record.goals_allowed }}</td>
+{#                    <td>{{ record.goals_forced }}-{{ record.goals_allowed }}</td>#}
                     <td>{{ record.goal_differential }}</td>
                     <td>{{ record.power_index|floatformat:3 }}</td>
                 </tr>
             {% endfor %}
         </table>
     </div>
-    <p><strong>PL</strong> - Matches played</p>
-    <p><strong>W</strong> - Matches won</p>
-    <p><strong>L</strong> - Matches lost</p>
-    <p><strong>+/-</strong> - Goals forced/allowed</p>
-    <p><strong>GD</strong> - Goal differential</p>
-    <p><strong>PI</strong> - Power index</p>
+{#    <p><strong>PL</strong> - Matches played</p>#}
+{#    <p><strong>W</strong> - Matches won</p>#}
+{#    <p><strong>L</strong> - Matches lost</p>#}
+{#    <p><strong>+/-</strong> - Goals forced/allowed</p>#}
+{#    <p><strong>GD</strong> - Goal differential</p>#}
+{#    <p><strong>PI</strong> - Power index</p>#}
 {% endblock %}

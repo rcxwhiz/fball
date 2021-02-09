@@ -1,9 +1,11 @@
 from datetime import datetime
 from fball_app.models import Player, Season, PlayerSeasonRecord, Game
 
-allowed_ip_addresses = [
-	'66.219.252.33'
-]
+# allowed_ip_addresses = [
+# 	'66.219.252.33'
+# ]
+
+allowed_ip_prefix = '66.219.'
 
 
 def get_power_change_win(player_record, opponent_record):
@@ -15,7 +17,7 @@ def get_power_change_loss(player_record, opponent_record):
 
 
 def add_player(form, ip_address):
-	if ip_address not in allowed_ip_addresses:
+	if not ip_address.startswith(allowed_ip_prefix):
 		return {'success': False, 'msg': 'forbidden'}
 	try:
 		data = form.cleaned_data
@@ -41,7 +43,7 @@ def add_player(form, ip_address):
 
 
 def add_game(form, ip_address):
-	if ip_address not in allowed_ip_addresses:
+	if not ip_address.startswith(allowed_ip_prefix):
 		return {'success': False, 'msg': 'forbidden'}
 	try:
 		data = form.cleaned_data
@@ -88,7 +90,7 @@ def add_game(form, ip_address):
 
 
 def add_season(ip_address):
-	if ip_address not in allowed_ip_addresses:
+	if not ip_address.startswith(allowed_ip_prefix):
 		return {'success': False, 'msg': 'forbidden'}
 	try:
 		current_season = Season.objects.order_by('-num').get()
